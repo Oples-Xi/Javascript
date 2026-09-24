@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>t4-5*</title>
+</head>
+<body>
+
+<script>
+    let currentYear = 2026;
+    let currentMonth = 9;
+    let currentDay = 7;
+
+    let birthYear = Number(prompt("Enter your birth year:"));
+    let birthMonth = Number(prompt("Enter your birth month:"));
+    let birthDay = Number(prompt("Enter your birth day:"));
+
+    let age = currentYear - birthYear - 1;
+
+    if (
+        currentMonth > birthMonth ||
+        (currentMonth === birthMonth && currentDay >= birthDay)
+    ) {
+        age++;
+    }
+
+    console.log(`Your approximate age: ${age}`);
+</script>
+
+</body>
+</html>
