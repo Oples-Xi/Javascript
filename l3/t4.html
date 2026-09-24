@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t4</title>
+</head>
+<body>
+
+<script>
+    function calculateDiscount(yuanjia, off=10)
+    {
+        let xianjia = yuanjia - (yuanjia * off / 100);
+        return xianjia;
+    }
+
+    let price = Number(prompt("Enter the origin price:"));
+    let discountInput = prompt("Enter the discount rate:");
+    let discountRate;
+
+    if (discountInput === "")
+    {
+        discountRate = 10;
+    }
+    else
+    {
+        discountRate = Number(discountInput);
+    }
+    let result = calculateDiscount(price, discountRate);
+    console.log(`Final price: $${result}`);
+</script>
+
+</body>
+</html>

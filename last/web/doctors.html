@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Doctors | Luo Dental Clinic</title>
+    <link rel="stylesheet" href="doctors.css" />
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo-area">
+            <img src="picture/1.png" alt="DentaCare Logo">
+            <h3><a href="index.html">Luo Dental Clinic</a></h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#photogallery">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+            </ul>
+        </nav>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#photogallery">Photo Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2 class="section-title">Our Expert Team</h2>
+        <div class="subhead">
+            Highly qualified dentists with years of experience, dedicated to giving you a healthy and beautiful smile.
+        </div>
+
+        <!-- filter buttons -->
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Specialists</button>
+            <button class="filter-btn" data-filter="implant">Implantology</button>
+            <button class="filter-btn" data-filter="ortho">Orthodontics</button>
+            <button class="filter-btn" data-filter="pediatric">Pediatric Dentistry</button>
+            <button class="filter-btn" data-filter="general">General & Cosmetic</button>
+        </div>
+
+        <!-- doctors grid injected via JS -->
+        <div class="doctors-grid" id="doctorsGrid"></div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>DentaCare Clinic</h4>
+            <p>123 Health Street, Minsk<br>+375 (29) 123-45-67<br>info@dentacare.by</p>
+        </div>
+        <div class="footer-col">
+            <h4>Working Hours</h4>
+            <p>Mon-Fri: 9:00 – 20:00<br>Sat: 10:00 – 16:00<br>Sun: closed</p>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 Luo Dental Clinic | Professional care for healthy smiles</p>
+    </div>
+</footer>
+
+<button id="scrollToTopButton" title="Go to top">
+    <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
+        <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
+    </svg>
+</button>
+
+<script>
+    // ---------- DOCTORS DATA ----------
+    const doctorsData = [
+        {
+            id: 1,
+            name: "Dr. Dianguan Han",
+            specialty: "Implantology & Oral Surgery",
+            category: "implant",
+            experience: "02 years",
+            bio: "Former chief of implant department at City Dental Hospital. Expert in All-on-4, bone grafting, and digital implant planning.",
+            imgPlaceholder: "picture/91.jpg",
+            contact: "dr.Han@dentacare.by"
+        },
+        {
+            id: 2,
+            name: "Dr. Kehan Zhao",
+            specialty: "Orthodontics & Dentofacial Orthopedics",
+            category: "ortho",
+            experience: "04 years",
+            bio: "Certified Invisalign provider, specialist in aesthetic braces and interceptive orthodontics for teens and adults.",
+            imgPlaceholder: "picture/Zhao.jpg",
+            contact: "dr.zhao@dentacare.by"
+        },
+        {
+            id: 3,
+            name: "Dr. Boyao Deng",
+            specialty: "Pediatric Dentistry",
+            category: "pediatric",
+            experience: "11 years",
+            bio: "Gentle and caring approach, specialized in child psychology, prevention, and treatment of dental anxiety in kids.",
+            imgPlaceholder: "picture/Deng.jpg",
+            contact: "dr.deng@dentacare.by"
+        },
+        {
+            id: 4,
+            name: "Dr.Jiaqi Li",
+            specialty: "General & Restorative Dentistry",
+            category: "general",
+            experience: "14 years",
+            bio: "Extensive experience in complex restorations, root canal treatments, and full-mouth rehabilitation.",
+            imgPlaceholder: "picture/Li.jpg",
+            contact: "dr.li@dentacare.by"
+        },
+        {
+            id: 5,
+            name: "Dr. Qianyu Chen",
+            specialty: "Cosmetic & Aesthetic Dentistry",
+            category: "general",
+            experience: "0 years",
+            bio: "Master of veneers, teeth whitening, and smile makeovers. Member of the European Society of Cosmetic Dentistry.",
+            imgPlaceholder: "picture/93.jpg",
+            contact: "dr.chen@dentacare.by"
+        },
+        {
+            id: 6,
+            name: "Dr. Zixuan Wu",
+            specialty: "Periodontics & Implant Maintenance",
+            category: "implant",
+            experience: "05 years",
+            bio: "Specialist in gum diseases, soft tissue management, and implant aftercare. Focus on long-term oral health.",
+            imgPlaceholder: "picture/92.jpg",
+            contact: "dr.wu@dentacare.by"
+        },
+        {
+            id: 7,
+            name: "Dr.Ge Zhu",
+            specialty: "Orthodontics (Children & Adults)",
+            category: "ortho",
+            experience: "8 years",
+            bio: "Early intervention treatment, functional appliances, and lingual braces. Passionate about creating confident smiles.",
+            imgPlaceholder: "picture/Zhu.jpg",
+            contact: "dr.zhu@dentacare.by"
+        },
+        {
+            id: 8,
+            name: "Dr. Cat",
+            specialty: "Pediatric & Preventive Dentistry",
+            category: "pediatric",
+            experience: "7 years",
+            bio: "Focused on prevention, fluoride therapy, and dental sealants. Loves working with children with special needs.",
+            imgPlaceholder: "picture/Cat.jpg",
+            contact: "dr.Cat@dentacare.by"
+        }
+    ];
+    function renderDoctors(filter = "all") {
+        const grid = document.getElementById("doctorsGrid");
+        if (!grid) return;
+        
+        let filtered = doctorsData;
+        if (filter !== "all") {
+            filtered = doctorsData.filter(doc => doc.category === filter);
+        }
+        if (filtered.length === 0) {
+            grid.innerHTML = `<div style="text-align:center; grid-column:1/-1; padding:40px;">No doctors found in this category. Please try another filter.</div>`;
+            return;
+        }
+        const cardsHTML = filtered.map(doc => `
+            <div class="doctor-card" data-category="${doc.category}">
+                <img class="doctor-img" src="${doc.imgPlaceholder}" alt="${doc.name}" onerror="this.src='https://placehold.co/400x320?text=Dentist'">
+                <div class="doctor-info">
+                    <h3>${doc.name}</h3>
+                    <div class="doctor-specialty">${doc.specialty}</div>
+                    <div class="doctor-experience"><i class="fas fa-briefcase"></i> ${doc.experience} experience</div>
+                    <div class="doctor-bio">${doc.bio}</div>
+                    <div class="doctor-contact"><i class="fas fa-envelope"></i> ${doc.contact}</div>
+                </div>
+            </div>
+        `).join('');
+        
+        grid.innerHTML = cardsHTML;
+    }
+
+    // Setup filter buttons event listeners
+    function initFilters() {
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // remove active class from all
+                buttons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filterValue = this.getAttribute('data-filter');
+                renderDoctors(filterValue);
+            });
+        });
+    }
+
+    // ========== BURGER MENU TOGGLE ==========
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMenu() {
+        mobileMenu.classList.toggle('open');
+    }
+    if(burger) burger.addEventListener('click', toggleMenu);
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    });
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    // ========== SCROLL TO TOP BUTTON ==========
+    let scrollBtn = document.getElementById("scrollToTopButton");
+    window.onscroll = function() { scrollFunction(); };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    }
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    scrollBtn.addEventListener('click', topFunction);
+
+    // Initialize page
+    renderDoctors("all");
+    initFilters();
+</script>
+</body>
+</html>

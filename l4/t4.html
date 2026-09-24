@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4</title>
+</head>
+<body>
+
+<script>
+    let laptop = {
+        brand: "ASUS",
+        name:"TX 6Pro",
+        model: "FA608PM",
+        ram: 32,
+        ssd: 2048
+    };
+
+    console.log("Own properties:");
+
+    for (let key in laptop) {
+        if (laptop.hasOwnProperty(key)) {
+            console.log(`Property: ${key}, Value: ${laptop[key]}`);
+        }
+    }
+
+    Object.prototype.category = "Electronics";
+
+    console.log("All properties:");
+
+    for (let key in laptop) {
+        console.log(`Property: ${key}, Value: ${laptop[key]}`);
+    }
+
+    console.log("Own properties only:");
+
+    for (let key in laptop) {
+        if (laptop.hasOwnProperty(key)) {
+            console.log(`Property: ${key}, Value: ${laptop[key]}`);
+        }
+    }
+</script>
+
+</body>
+</html>

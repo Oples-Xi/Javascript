@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t1</title>
+</head>
+<body>
+
+<script>
+    let smartphone = {
+        brand: "Huawei",
+        model: "Mate 70 Pro",
+        price: 6999,
+
+        getDescription: function () {
+            return `Smartphone \n${this.brand} ${this.model} \ncosts ${this.price} CNY.`;
+        }
+    };
+
+    console.log('origin:\n'+smartphone.getDescription());
+
+    smartphone.color = "black";
+    console.log('adding color:\n'+smartphone.getDescription()+'\ncolor:'+smartphone.color);
+
+    smartphone.price = 6699;
+    console.log('change price:\n'+smartphone.getDescription()+'\ncolor:'+smartphone.color);
+    delete smartphone.brand;
+    console.log('delete brand:\n'+smartphone.getDescription()+'\ncolor:'+smartphone.color);
+
+</script>
+
+</body>
+</html>

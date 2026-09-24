@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t1</title>
+</head>
+<body>
+<l1>Hello world!</l1>
+<script>
+    function isPrime(n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        for (let i = 2; i < n; i++) {
+            if (n % i === 0)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    let Num = prompt("Enter number:");
+    console.log(`${Num} is Prime number: `+ isPrime(Num));
+
+</script>
+
+</body>
+</html>
+
+

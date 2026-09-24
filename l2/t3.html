@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3</title>
+</head>
+<body>
+
+<script>
+    let month = Number(prompt("Enter month number (1-12):"));
+
+    let season;
+
+    switch (month) {
+        case 12:
+        case 1:
+        case 2:
+
+            season = "winter";
+            break;
+
+        case 3:
+        case 4:
+        case 5:
+            season = "spring";
+            break;
+
+        case 6:
+        case 7:
+        case 8:
+            season = "summer";
+            break;
+
+        case 9:
+        case 10:
+        case 11:
+            season = "autumn";
+            break;
+
+        default:
+            console.log("Invalid month number.");
+            break;
+    }
+
+    if (season !== undefined) {
+        console.log(`Season: ${season}.`);
+    }
+</script>
+
+</body>
+</html>

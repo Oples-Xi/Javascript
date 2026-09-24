@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Home | Luo Dental Clinic</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo-area">
+            <img src="picture/1.png" alt="DentaCare Logo" >
+            <h3><a href="index.html">Luo Dental Clinic</a></h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#photogallery">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+            </ul>
+        </nav>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#photogallery">Photo Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+        </ul>
+    </div>
+</header>
+<main>
+    <section id="home">
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Your smile, <br>our mission</h1>
+                <p>Experience modern dentistry with a gentle touch. Advanced technology, experienced specialists, and a caring environment for the whole family.</p>
+                <button class="hero-btn" onclick="window.location.href='appointment.html'">Book appointment <i class="fas fa-calendar-check"></i></button>
+            </div>
+            <div class="hero-img">
+                <img src="picture/2.jpg" alt="Dental clinic interior" style="background:#eef2f9;">
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About DentaCare</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>DentaCare Clinic</strong> was founded in 2015 by a team of passionate dental specialists. We combine medical excellence with patient comfort, offering a full range of dental services from preventive care to advanced implantology and orthodontics.</p>
+                <p>Our clinic is equipped with state-of-the-art digital radiography, intraoral scanners, and laser technology. We follow the strictest sterilization protocols to ensure your safety. Every treatment plan is personalized to meet your unique needs and budget.</p>
+                <p>We believe that a healthy smile transforms lives — and we're here to make that transformation seamless and pleasant.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat"><div class="stat-number">10+</div><div>Years of excellence</div></div>
+                <div class="stat"><div class="stat-number">8.5K+</div><div>Happy patients</div></div>
+                <div class="stat"><div class="stat-number">15</div><div>Specialists</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="photogallery">
+        <h2 class="section-title">Photo Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-card"><img src="picture/4.webp" alt="treatment room"><p>Modern treatment room</p></div>
+            <div class="gallery-card"><img src="picture/5.avif" alt="reception"><p>Cozy reception</p></div>
+            <div class="gallery-card"><img src="picture/5.webp" alt="staff team"><p>Our friendly staff</p></div>
+            <div class="gallery-card"><img src="picture/8.jpg" alt="sterilization"><p>Sterilization zone</p></div>
+            <div class="gallery-card"><img src="picture/9.jpg" alt="kids area"><p>Children's corner</p></div>
+            <div class="gallery-card"><img src="picture/10.webp" alt="technology"><p>Digital impression</p></div>
+        </div>
+    </section>
+
+    <section id="services-preview">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-preview">
+            <div class="service-item"><i class="fas fa-tooth"></i><h4>Preventive</h4><p>Checkups, cleanings, sealants</p></div>
+            <div class="service-item"><i class="fas fa-smile"></i><h4>Cosmetic</h4><p>Veneers, whitening, bonding</p></div>
+            <div class="service-item"><i class="fas fa-baby-carriage"></i><h4>Pediatric</h4><p>Gentle care for children</p></div>
+            <div class="service-item"><i class="fas fa-teeth-open"></i><h4>Orthodontics</h4><p>Braces & Invisalign</p></div>
+            <div class="service-item"><i class="fas fa-microscope"></i><h4>Implants</h4><p>Restore missing teeth</p></div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="services.html" style="color:#4e4376; font-weight: bold;">View all services →</a>
+        </div>
+    </section>
+
+    <section id="doctors-preview">
+        <h2 class="section-title">Meet Our Specialists</h2>
+        <div class="doctors-row">
+            <div class="doctor-card"><img src="picture/91.jpg" alt="Dr. Han"><h4>Dr. D. Han</h4><p>Implant surgeon</p><i class="fas fa-star" style="color:gold;"></i> 02 yrs exp</div>
+            <div class="doctor-card"><img src="picture/Zhao.jpg" alt="Dr. Zhao"><h4>Dr. K. Zhao</h4><p>Orthodontist</p><i class="fas fa-star"></i> 04 yrs exp</div>
+            <div class="doctor-card"><img src="picture/Deng.jpg" alt="Dr. Deng"><h4>Dr. B. Deng</h4><p>Pediatric dentist</p><i class="fas fa-star"></i> 11 yrs exp</div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="doctors.html" style="color:#4e4376;">View full team →</a>
+        </div>
+    </section>
+
+    <section id="appointment-quick">
+        <h2 class="section-title">Request an Appointment</h2>
+        <div class="appointment-card">
+            <form id="quickAppointmentForm">
+                <div class="form-group"><input type="text" placeholder="Full Name" required id="appName"></div>
+                <div class="form-group"><input type="email" placeholder="Email Address" required id="appEmail"></div>
+                <div class="form-group"><input type="tel" placeholder="Phone Number" required id="appPhone"></div>
+                <div class="form-group">
+                    <select id="appService">
+                        <option value="Consultation">First consultation</option>
+                        <option value="Cleaning">Professional cleaning</option>
+                        <option value="Implant">Implant consultation</option>
+                        <option value="Orthodontics">Orthodontic check</option>
+                    </select>
+                </div>
+                <div class="form-group"><input type="date" id="appDate"></div>
+                <button type="submit" class="submit-btn">Send request <i class="fas fa-paper-plane"></i></button>
+                <p style="font-size:0.8rem; margin-top:12px; text-align:center;">*We will contact you within 24h to confirm</p>
+            </form>
+        </div>
+    </section>
+</main>
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>Luo Dental Clinic</h4>
+            <p>123 Health Street, Chengdu<br>+375 (29) 123-45-67<br>info@Luo.by</p>
+        </div>
+        <div class="footer-col">
+            <h4>Working Hours</h4>
+            <p>Mon-Fri: 9:00 – 20:00<br>Sat: 10:00 – 16:00<br>Sun: closed</p>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <p>No way   : (</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 Luo Dental Clinic | Professional care for healthy smiles</p>
+    </div>
+</footer>
+<button id="scrollToTopButton" title="Go to top">
+    <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
+        <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
+    </svg>
+</button>
+<script>
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMenu() {
+        mobileMenu.classList.toggle('open');
+    }
+    burger.addEventListener('click', toggleMenu);
+    // close mobile menu when clicking on a link
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    });
+    // close on window resize above 768px (if open)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 769 && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    let scrollBtn = document.getElementById("scrollToTopButton");
+    window.onscroll = function() { scrollFunction(); };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    }
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    scrollBtn.addEventListener('click', topFunction);
+
+    const appForm = document.getElementById('quickAppointmentForm');
+    if(appForm) {
+        appForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('appName').value;
+            if(name.trim() === "") {
+                alert("Please enter your name.");
+                return;
+            }
+            alert(`Thank you ${name}! Your request has been sent. Our manager will call you soon.`);
+            appForm.reset();
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#" || targetId === "") return;
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // close mobile menu if open
+                if(mobileMenu.classList.contains('open')) mobileMenu.classList.remove('open');
+            }
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t2</title>
+</head>
+<body>
+
+<script>
+    function Movie(title, director, year) {
+        this.title = title;
+        this.director = director;
+        this.year = year;
+
+        this.getInfo = function () {
+            return `Movie: ${this.title}, \nDirector: ${this.director}, \nYear: ${this.year}`;
+        };
+    }
+
+    let movie1 = new Movie(
+        "Harry Potter and the Sorcerer's Stone",
+        "Chris Columbus ",
+        2001
+    );
+
+    let movie2 = new Movie(
+        "Harry Potter and the Chamber of Secrets",
+        "Chris Columbus",
+        2002
+    );
+
+    let movie3 = new Movie(
+        "Harry Potter and the Prisoner of Azkaban",
+        "Alfonso Cuarón",
+        2004
+    );
+
+    let movie4 = new Movie(
+        "Harry Potter and the Goblet of Fire",
+        "Mike Newell",
+        2005
+    );
+
+    let movie5 = new Movie(
+        "Harry Potter and the Order of the Phoenix",
+        "Michael Goldenberg",
+        2007
+    );
+
+    let movie6 = new Movie(
+        "Harry Potter and the Half-Blood Prince",
+        "Steve Kloves",
+        2009
+    );
+
+    let movie7 = new Movie(
+        "Harry Potter and the Deathly Hallows(Pt.1)",
+        "David Yates",
+        2010
+    );
+
+    console.log(movie1.getInfo());
+    console.log(movie2.getInfo());
+    console.log(movie3.getInfo());
+    console.log(movie4.getInfo());
+    console.log(movie5.getInfo());
+    console.log(movie6.getInfo());
+    console.log(movie7.getInfo());
+</script>
+
+</body>
+</html>

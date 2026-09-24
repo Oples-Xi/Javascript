@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t3</title>
+</head>
+<body>
+
+<script>
+    function multiplicationTable(n, limit)
+    {
+        for (let i = 1; i <= limit; i++)
+        {
+            console.log(`${n} * ${i} = ${n * i}`);
+        }
+    }
+
+    let num = Number(prompt("Enter a number:"));
+    let limit = Number(prompt("Enter the limit:"));
+    multiplicationTable(num, limit);
+</script>
+
+</body>
+</html>

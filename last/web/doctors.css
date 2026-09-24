@@ -1,0 +1,317 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+        body {
+            background-color: #f9fafc;
+            color: #1e2a3e;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+            color: white;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 80px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-area img {
+            width: 150px;
+            height: 50px;
+            object-fit: contain;
+            border-radius: 50%;
+            /* background: white; */
+            padding: 5px;
+        }
+        .logo-area h3 {
+            font-size: 1.6rem;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .logo-area a {
+            text-decoration: none;
+            color: white;
+        }
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: 0.2s;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+        nav ul li a:hover {
+            border-bottom-color: #ffd966;
+            color: #ffecb3;
+        }
+        .burger-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: calc(100vh - 80px);
+            background: #2c3e66;
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            transition: left 0.4s ease;
+            padding: 30px 20px;
+            border-radius: 0 20px 20px 0;
+            box-shadow: 5px 0 20px rgba(0,0,0,0.2);
+        }
+        .mobile-menu ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .mobile-menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .mobile-menu.open {
+            left: 0;
+        }
+        main {
+            margin-top: 100px;
+            padding: 20px 5%;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        section {
+            margin-bottom: 70px;
+            scroll-margin-top: 100px;
+        }
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #1e466e;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #4e4376;
+            margin: 12px auto 0;
+            border-radius: 4px;
+        }
+        .subhead {
+            text-align: center;
+            color: #4a627a;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            font-size: 1.1rem;
+        }
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 45px;
+        }
+        .filter-btn {
+            background: #eef2fa;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.95rem;
+            color: #2d3e5f;
+        }
+        .filter-btn.active {
+            background: #4e4376;
+            color: white;
+            box-shadow: 0 4px 10px rgba(78,67,118,0.3);
+        }
+        .filter-btn:hover {
+            background: #d9e2ef;
+        }
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 35px;
+        }
+        .doctor-card {
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s;
+            text-align: center;
+            padding-bottom: 25px;
+        }
+        .doctor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+        .doctor-img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: #eef2fa;
+        }
+        .doctor-info {
+            padding: 20px 20px 10px;
+        }
+        .doctor-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            color: #1f3b4c;
+        }
+        .doctor-specialty {
+            color: #4e4376;
+            font-weight: 600;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        .doctor-experience {
+            font-size: 0.9rem;
+            background: #f0f3f9;
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 30px;
+            margin-bottom: 12px;
+        }
+        .doctor-bio {
+            font-size: 0.95rem;
+            color: #334155;
+            line-height: 1.5;
+            margin: 15px 0;
+            padding: 0 5px;
+        }
+        .doctor-contact {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #2b5876;
+        }
+        .doctor-contact i {
+            margin-right: 6px;
+        }
+        footer {
+            background: #1e2a3a;
+            color: #e2e8f0;
+            padding: 40px 5% 20px;
+            margin-top: 60px;
+            border-radius: 30px 30px 0 0;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 1400px;
+            margin: auto;
+        }
+        .footer-col h4 {
+            margin-bottom: 16px;
+            color: white;
+        }
+        .footer-col p, .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+        .social-icons a {
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: #cbd5e1;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 0.85rem;
+        }
+        #scrollToTopButton {
+            position: fixed;
+            bottom: 30px;
+            right: 25px;
+            display: none;
+            background: #4e4376;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            z-index: 999;
+            transition: 0.2s;
+        }
+        #scrollToTopButton:hover {
+            background: #2b5876;
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                height: 70px;
+            }
+            nav ul {
+                display: none;
+            }
+            .burger-btn {
+                display: block;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            main {
+                margin-top: 90px;
+            }
+            .logo-area h3 {
+                font-size: 1.2rem;
+            }
+            .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (min-width: 769px) {
+            .mobile-menu {
+                display: none;
+            }
+        }

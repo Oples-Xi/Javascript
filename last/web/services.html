@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Services | Luo Dental Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Services.css" />
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo-area">
+            <img src="picture/1.png" alt="DentaCare Logo">
+            <h3><a href="index.html">Luo Dental Clinic</a></h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#photogallery">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+            </ul>
+        </nav>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#photogallery">Photo Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2 class="section-title">Comprehensive Dental Services</h2>
+        <div class="subhead">
+            We offer a full range of modern dental treatments using state-of-the-art technology and gentle care.
+        </div>
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Services</button>
+            <button class="filter-btn" data-filter="preventive">Preventive Dentistry</button>
+            <button class="filter-btn" data-filter="restorative">Restorative Dentistry</button>
+            <button class="filter-btn" data-filter="ortho">Orthodontics</button>
+            <button class="filter-btn" data-filter="cosmetic">Cosmetic Dentistry</button>
+            <button class="filter-btn" data-filter="implant">Implantology</button>
+        </div>
+
+        <div class="services-grid" id="servicesGrid"></div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>DentaCare Clinic</h4>
+            <p>123 Health Street, Minsk<br>+375 (29) 123-45-67<br>info@dentacare.by</p>
+        </div>
+        <div class="footer-col">
+            <h4>Working Hours</h4>
+            <p>Mon-Fri: 9:00 – 20:00<br>Sat: 10:00 – 16:00<br>Sun: closed</p>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 Luo Dental Clinic | Professional care for healthy smiles</p>
+    </div>
+</footer>
+
+<button id="scrollToTopButton" title="Go to top">
+    <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
+        <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
+    </svg>
+</button>
+
+<script>
+    // ---------- SERVICES DATA ----------
+    const servicesData = [
+        // Preventive
+        { id: 1, name: "Oral Exam & Consultation", category: "preventive", icon: "fas fa-stethoscope", desc: "Comprehensive oral examination, digital X-rays, and personalized treatment plan.", price: "from $45", link: "appointment.html" },
+        { id: 2, name: "Professional Teeth Cleaning", category: "preventive", icon: "fas fa-broom", desc: "Removal of plaque, tartar, and stains. Prophylaxis and polishing for healthy gums.", price: "from $70", link: "appointment.html" },
+        { id: 3, name: "Fluoride Treatment", category: "preventive", icon: "fas fa-tooth", desc: "Strengthens enamel and prevents cavities. Ideal for children and adults.", price: "from $30", link: "appointment.html" },
+        { id: 4, name: "Dental Sealants", category: "preventive", icon: "fas fa-shield-alt", desc: "Protective coating for molars to prevent decay.", price: "from $25 per tooth", link: "appointment.html" },
+        // Restorative
+        { id: 5, name: "Tooth-Colored Fillings", category: "restorative", icon: "fas fa-fill-drip", desc: "Composite resin restorations that match your natural teeth.", price: "from $90", link: "appointment.html" },
+        { id: 6, name: "Root Canal Therapy", category: "restorative", icon: "fas fa-microscope", desc: "Saving infected teeth with pain-free endodontic treatment.", price: "from $350", link: "appointment.html" },
+        { id: 7, name: "Dental Crowns", category: "restorative", icon: "fas fa-crown", desc: "Custom-made ceramic or zirconia crowns for damaged teeth.", price: "from $600", link: "appointment.html" },
+        { id: 8, name: "Bridges & Partial Dentures", category: "restorative", icon: "fas fa-bridge", desc: "Replace missing teeth and restore function and aesthetics.", price: "from $800", link: "appointment.html" },
+        // Orthodontics
+        { id: 9, name: "Metal Braces", category: "ortho", icon: "fas fa-bezier-curve", desc: "Traditional efficient orthodontic treatment for all ages.", price: "from $2000", link: "appointment.html" },
+        { id: 10, name: "Clear Aligners (Invisalign)", category: "ortho", icon: "fas fa-smile-wink", desc: "Nearly invisible aligners for a discreet straightening process.", price: "from $2800", link: "appointment.html" },
+        { id: 11, name: "Ceramic Braces", category: "ortho", icon: "fas fa-gem", desc: "Less visible brackets for aesthetic orthodontic care.", price: "from $3200", link: "appointment.html" },
+        // Cosmetic
+        { id: 12, name: "Teeth Whitening", category: "cosmetic", icon: "fas fa-sun", desc: "In-office bleaching or take-home kits for a radiant smile.", price: "from $200", link: "appointment.html" },
+        { id: 13, name: "Porcelain Veneers", category: "cosmetic", icon: "fas fa-star", desc: "Ultra-thin shells to correct shape, color, and alignment.", price: "from $900 per tooth", link: "appointment.html" },
+        { id: 14, name: "Composite Bonding", category: "cosmetic", icon: "fas fa-paint-brush", desc: "Repair chips, gaps, and discoloration in one visit.", price: "from $150", link: "appointment.html" },
+        { id: 15, name: "Smile Makeover", category: "cosmetic", icon: "fas fa-laugh-beam", desc: "Personalized combination of cosmetic procedures.", price: "Custom quote", link: "appointment.html" },
+        // Implantology
+        { id: 16, name: "Single Tooth Implant", category: "implant", icon: "fas fa-tools", desc: "Permanent titanium root with custom crown.", price: "from $1500", link: "appointment.html" },
+        { id: 17, name: "Implant-Supported Bridge", category: "implant", icon: "fas fa-arrows-alt", desc: "Replace multiple missing teeth without removable dentures.", price: "from $4000", link: "appointment.html" },
+        { id: 18, name: "Full Arch Restoration (All-on-4)", category: "implant", icon: "fas fa-archway", desc: "Fixed prosthesis on four implants for full jaw reconstruction.", price: "from $12000", link: "appointment.html" },
+        { id: 19, name: "Bone Grafting", category: "implant", icon: "fas fa-bone", desc: "Preparation for implant placement when bone volume is insufficient.", price: "from $500", link: "appointment.html" }
+    ];
+
+    // render services based on filter
+    function renderServices(filter = "all") {
+        const container = document.getElementById("servicesGrid");
+        if (!container) return;
+        
+        let filtered = servicesData;
+        if (filter !== "all") {
+            filtered = servicesData.filter(service => service.category === filter);
+        }
+        
+        if (filtered.length === 0) {
+            container.innerHTML = `<div style="text-align:center; grid-column:1/-1; padding:40px;">No services found in this category. Please try another filter.</div>`;
+            return;
+        }
+        
+        const cardsHTML = filtered.map(service => `
+            <div class="service-card">
+                <div class="service-icon"><i class="${service.icon}"></i></div>
+                <div class="service-content">
+                    <h3>${service.name}</h3>
+                    <div class="service-desc">${service.desc}</div>
+                    <div class="service-price"><i class="fas fa-tag"></i> ${service.price}</div>
+                    <a href="${service.link}" class="book-link">Book now →</a>
+                </div>
+            </div>
+        `).join('');
+        
+        container.innerHTML = cardsHTML;
+    }
+
+    // setup filter buttons
+    function initFilters() {
+        const btns = document.querySelectorAll('.filter-btn');
+        btns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                btns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                const filterVal = this.getAttribute('data-filter');
+                renderServices(filterVal);
+            });
+        });
+    }
+
+    // ========== BURGER MENU TOGGLE ==========
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMenu() {
+        mobileMenu.classList.toggle('open');
+    }
+    if(burger) burger.addEventListener('click', toggleMenu);
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    });
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    // ========== SCROLL TO TOP BUTTON ==========
+    let scrollBtn = document.getElementById("scrollToTopButton");
+    window.onscroll = function() { scrollFunction(); };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    }
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    scrollBtn.addEventListener('click', topFunction);
+
+    // initial render
+    renderServices("all");
+    initFilters();
+</script>
+</body>
+</html>

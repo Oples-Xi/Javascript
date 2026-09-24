@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4</title>
+</head>
+<body>
+
+<script>
+    let number1 = Number(prompt("Enter the first number:"));
+    let number2 = Number(prompt("Enter the second number:"));
+
+    let operation = prompt("Enter an operation (+, -, *, /):");
+
+    let result;
+
+    switch (operation) {
+        case "+":
+            result = number1 + number2;
+            console.log(`Result: ${result}`);
+            break;
+
+        case "-":
+            result = number1 - number2;
+            console.log(`Result: ${result}`);
+            break;
+
+        case "*":
+            result = number1 * number2;
+            console.log(`Result: ${result}`);
+            break;
+
+        case "/":
+            if (number2 === 0) {
+                console.log("Error: division by zero");
+            }
+            else {
+                result = number1 / number2;
+                console.log(`Result: ${result}`);
+            }
+            break;
+
+        default:
+            console.log("Error: unknown operation");
+            break;
+    }
+</script>
+
+== === !=
+</body>
+</html>

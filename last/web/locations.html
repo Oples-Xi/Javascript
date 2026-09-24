@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Our Locations | Luo Dental Clinic</title>
+    <link rel="stylesheet" z
+    <!-- Leaflet CSS for map -->
+    <link rel="stylesheet" href="Locations.css" />
+</head>
+<body>
+<header>
+    <div class="header-container">
+        <div class="logo-area">
+            <img src="picture/1.png" alt="DentaCare Logo">
+            <h3><a href="index.html">Luo Dental Clinic</a></h3>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#photogallery">Gallery</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="doctors.html">Doctors</a></li>
+                <li><a href="locations.html">Locations</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="appointment.html">Appointment</a></li>
+            </ul>
+        </nav>
+        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#photogallery">Photo Gallery</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="doctors.html">Doctors</a></li>
+            <li><a href="locations.html">Locations</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="appointment.html">Appointment</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section>
+        <h2 class="section-title">Our Clinics</h2>
+        <div class="subhead">
+            We are conveniently located across the city. Visit us at one of our modern dental centers.
+        </div>
+
+        <!-- toggle buttons -->
+        <div class="mode-toggle">
+            <button class="toggle-btn active" id="listModeBtn"><i class="fas fa-list"></i> List View</button>
+            <button class="toggle-btn" id="mapModeBtn"><i class="fas fa-map-marked-alt"></i> On the Map</button>
+        </div>
+
+        <!-- List View container -->
+        <div id="locationsListContainer" class="locations-list">
+            <!-- dynamically filled by JS -->
+        </div>
+
+        <!-- Map View container (hidden by default) -->
+        <div id="mapContainer" class="map-container hidden">
+            <div id="map"></div>
+            <div class="map-note"><i class="fas fa-map-pin"></i> Click markers to see location details</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>DentaCare Clinic</h4>
+            <p>123 Health Street, Minsk<br>+375 (29) 123-45-67<br>info@dentacare.by</p>
+        </div>
+        <div class="footer-col">
+            <h4>Working Hours</h4>
+            <p>Mon-Fri: 9:00 – 20:00<br>Sat: 10:00 – 16:00<br>Sun: closed</p>
+        </div>
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>© 2026 Luo Dental Clinic | Professional care for healthy smiles</p>
+    </div>
+</footer>
+
+<button id="scrollToTopButton" title="Go to top">
+    <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
+        <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
+    </svg>
+</button>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+    // ---------- LOCATIONS DATA ----------
+    const locations = [
+        {
+            id: 1,
+            name: "DentaCare City Center",
+            address: "123 Nezavisimosti Ave, Minsk, 220030",
+            phone: "+375 (29) 111-22-33",
+            email: "citycenter@dentacare.by",
+            hours: "Mon-Fri: 9:00–20:00, Sat: 10:00–16:00",
+            lat: 53.9045,
+            lng: 27.5615,
+            image: "https://placehold.co/600x400?text=City+Center+Clinic",
+            description: "Our flagship clinic in the heart of Minsk, fully equipped with digital dentistry."
+        },
+        {
+            id: 2,
+            name: "DentaCare North Point",
+            address: "45 Kalvariyskaya Str, Minsk, 220073",
+            phone: "+375 (29) 222-44-55",
+            email: "north@dentacare.by",
+            hours: "Mon-Fri: 10:00–20:00, Sat: 10:00–15:00",
+            lat: 53.9356,
+            lng: 27.5443,
+            image: "https://placehold.co/600x400?text=North+Point+Clinic",
+            description: "Spacious clinic with family-friendly atmosphere and pediatric area."
+        },
+        {
+            id: 3,
+            name: "DentaCare South Park",
+            address: "8 Serafimovicha Str, Minsk, 220033",
+            phone: "+375 (29) 333-66-77",
+            email: "south@dentacare.by",
+            hours: "Mon-Fri: 9:00–19:00, Sat: 9:00–14:00",
+            lat: 53.8705,
+            lng: 27.5380,
+            image: "https://placehold.co/600x400?text=South+Park+Clinic",
+            description: "Quiet location near park, offering orthodontic and implant services."
+        }
+    ];
+
+    // Render list view
+    function renderListView() {
+        const container = document.getElementById('locationsListContainer');
+        if (!container) return;
+        let html = '';
+        locations.forEach(loc => {
+            html += `
+                <div class="location-card">
+                    <img class="location-img" src="${loc.image}" alt="${loc.name}" onerror="this.src='https://placehold.co/600x400?text=Clinic+Image'">
+                    <div class="location-info">
+                        <h3>${loc.name}</h3>
+                        <div class="location-detail"><i class="fas fa-map-marker-alt"></i> ${loc.address}</div>
+                        <div class="location-detail"><i class="fas fa-phone-alt"></i> ${loc.phone}</div>
+                        <div class="location-detail"><i class="fas fa-envelope"></i> ${loc.email}</div>
+                        <div class="hours"><i class="far fa-clock"></i> ${loc.hours}</div>
+                        <p style="margin-top: 12px; font-size:0.9rem; color:#4a627a;"><i class="fas fa-info-circle"></i> ${loc.description}</p>
+                    </div>
+                </div>
+            `;
+        });
+        container.innerHTML = html;
+    }
+
+    let mapInitialized = false;
+    let map = null;
+    let markers = [];
+
+    function initMap() {
+        if (mapInitialized && map) return;
+        // Create map centered on Minsk
+        map = L.map('map').setView([53.9045, 27.5615], 12);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; CartoDB',
+            subdomains: 'abcd',
+            maxZoom: 19
+        }).addTo(map);
+        
+        // Add markers for each location
+        locations.forEach(loc => {
+            const marker = L.marker([loc.lat, loc.lng]).addTo(map);
+            marker.bindPopup(`
+                <b>${loc.name}</b><br>
+                ${loc.address}<br>
+                <i class="fas fa-phone-alt"></i> ${loc.phone}<br>
+                <a href="appointment.html" style="color:#4e4376;">Book appointment</a>
+            `);
+            markers.push(marker);
+        });
+        
+        mapInitialized = true;
+    }
+
+    // Toggle between list and map
+    function showList() {
+        document.getElementById('locationsListContainer').classList.remove('hidden');
+        document.getElementById('mapContainer').classList.add('hidden');
+        document.getElementById('listModeBtn').classList.add('active');
+        document.getElementById('mapModeBtn').classList.remove('active');
+        // optional: resize map if needed later, but not needed
+    }
+
+    function showMap() {
+        document.getElementById('locationsListContainer').classList.add('hidden');
+        document.getElementById('mapContainer').classList.remove('hidden');
+        document.getElementById('listModeBtn').classList.remove('active');
+        document.getElementById('mapModeBtn').classList.add('active');
+        // initialize map if not yet
+        if (!mapInitialized) {
+            initMap();
+        } else {
+            // refresh map size after container becomes visible
+            setTimeout(() => {
+                if (map) map.invalidateSize();
+            }, 150);
+        }
+    }
+
+    // ========== BURGER MENU TOGGLE ==========
+    const burger = document.getElementById('burgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMenu() {
+        mobileMenu.classList.toggle('open');
+    }
+    if(burger) burger.addEventListener('click', toggleMenu);
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+    });
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    // ========== SCROLL TO TOP BUTTON ==========
+    let scrollBtn = document.getElementById("scrollToTopButton");
+    window.onscroll = function() { scrollFunction(); };
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollBtn.style.display = "block";
+        } else {
+            scrollBtn.style.display = "none";
+        }
+    }
+    function topFunction() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    scrollBtn.addEventListener('click', topFunction);
+
+    // Initialize page
+    renderListView();
+    // default list mode active; map not shown initially
+    document.getElementById('locationsListContainer').classList.remove('hidden');
+    document.getElementById('mapContainer').classList.add('hidden');
+    
+    // event listeners for toggle buttons
+    document.getElementById('listModeBtn').addEventListener('click', showList);
+    document.getElementById('mapModeBtn').addEventListener('click', showMap);
+    
+    // Preload map on demand only when map button is clicked (already inside showMap)
+    // optional: preload map on page load after a delay for better UX? not necessary
+    // but if user clicks map, it will load.
+    
+    // For better experience, preload map after page load quietly?
+    // We'll just lazy load on map button.
+    // However, if user never clicks map, no network waste.
+</script>
+</body>
+</html>
