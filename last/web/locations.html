@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Luo Dental Clinic locations, opening hours, and contact details.">
     <title>Our Locations | Luo Dental Clinic</title>
-    <link rel="stylesheet" z
-    <!-- Leaflet CSS for map -->
-    <link rel="stylesheet" href="Locations.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="locations_updated.css">
 </head>
 <body>
 <header>
     <div class="header-container">
         <div class="logo-area">
-            <img src="picture/1.png" alt="DentaCare Logo">
+            <img src="picture\1.png" alt="Luo Dental Clinic logo">
             <h3><a href="index.html">Luo Dental Clinic</a></h3>
         </div>
         <nav>
@@ -27,9 +28,10 @@
                 <li><a href="appointment.html">Appointment</a></li>
             </ul>
         </nav>
-        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+        <button class="burger-btn" id="burgerBtn" type="button" aria-controls="mobileMenu"
+                aria-expanded="false" aria-label="Open navigation menu">☰</button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" inert>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#about">About Us</a></li>
@@ -52,8 +54,8 @@
 
         <!-- toggle buttons -->
         <div class="mode-toggle">
-            <button class="toggle-btn active" id="listModeBtn"><i class="fas fa-list"></i> List View</button>
-            <button class="toggle-btn" id="mapModeBtn"><i class="fas fa-map-marked-alt"></i> On the Map</button>
+            <button class="toggle-btn active" id="listModeBtn" type="button" aria-pressed="true"><i class="fas fa-list"></i> List View</button>
+            <button class="toggle-btn" id="mapModeBtn" type="button" aria-pressed="false"><i class="fas fa-map-marked-alt"></i> On the Map</button>
         </div>
 
         <!-- List View container -->
@@ -72,8 +74,8 @@
 <footer>
     <div class="footer-content">
         <div class="footer-col">
-            <h4>DentaCare Clinic</h4>
-            <p>123 Health Street, Minsk<br>+375 (29) 123-45-67<br>info@dentacare.by</p>
+            <h4>Luo Dental Clinic</h4>
+            <p>For current contact details, please visit our <a href="contacts.html">Contacts page</a>.</p>
         </div>
         <div class="footer-col">
             <h4>Working Hours</h4>
@@ -81,12 +83,7 @@
         </div>
         <div class="footer-col">
             <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-weixin"></i></a>
-            </div>
+            <p>Official social media links will be added when available.</p>
         </div>
     </div>
     <div class="copyright">
@@ -94,7 +91,7 @@
     </div>
 </footer>
 
-<button id="scrollToTopButton" title="Go to top">
+<button id="scrollToTopButton" type="button" title="Go to top" aria-label="Scroll to top">
     <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
         <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
     </svg>
@@ -106,10 +103,10 @@
     const locations = [
         {
             id: 1,
-            name: "DentaCare City Center",
+            name: "Luo Dental Clinic City Center",
             address: "123 Nezavisimosti Ave, Minsk, 220030",
             phone: "+375 (29) 111-22-33",
-            email: "citycenter@dentacare.by",
+            email: "citycenter@Luo Dental Clinic.by",
             hours: "Mon-Fri: 9:00–20:00, Sat: 10:00–16:00",
             lat: 53.9045,
             lng: 27.5615,
@@ -118,10 +115,10 @@
         },
         {
             id: 2,
-            name: "DentaCare North Point",
+            name: "Luo Dental Clinic North Point",
             address: "45 Kalvariyskaya Str, Minsk, 220073",
             phone: "+375 (29) 222-44-55",
-            email: "north@dentacare.by",
+            email: "north@Luo Dental Clinic.by",
             hours: "Mon-Fri: 10:00–20:00, Sat: 10:00–15:00",
             lat: 53.9356,
             lng: 27.5443,
@@ -130,10 +127,10 @@
         },
         {
             id: 3,
-            name: "DentaCare South Park",
+            name: "Luo Dental Clinic South Park",
             address: "8 Serafimovicha Str, Minsk, 220033",
             phone: "+375 (29) 333-66-77",
-            email: "south@dentacare.by",
+            email: "south@Luo Dental Clinic.by",
             hours: "Mon-Fri: 9:00–19:00, Sat: 9:00–14:00",
             lat: 53.8705,
             lng: 27.5380,
@@ -150,7 +147,8 @@
         locations.forEach(loc => {
             html += `
                 <div class="location-card">
-                    <img class="location-img" src="${loc.image}" alt="${loc.name}" onerror="this.src='https://placehold.co/600x400?text=Clinic+Image'">
+                    <img class="location-img" src="${loc.image}" alt="${loc.name}" loading="lazy"
+                         onerror="this.onerror=null; this.src='https://placehold.co/600x400?text=Clinic+Image';">
                     <div class="location-info">
                         <h3>${loc.name}</h3>
                         <div class="location-detail"><i class="fas fa-map-marker-alt"></i> ${loc.address}</div>
@@ -171,7 +169,11 @@
 
     function initMap() {
         if (mapInitialized && map) return;
-        // Create map centered on Minsk
+        if (typeof L === 'undefined') {
+            document.getElementById('map').textContent = 'The map could not be loaded. Check your internet connection and reload the page.';
+            return;
+        }
+        // Create map centered on the locations listed below
         map = L.map('map').setView([53.9045, 27.5615], 12);
         L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OSM</a> &copy; CartoDB',
@@ -200,6 +202,8 @@
         document.getElementById('mapContainer').classList.add('hidden');
         document.getElementById('listModeBtn').classList.add('active');
         document.getElementById('mapModeBtn').classList.remove('active');
+        document.getElementById('listModeBtn').setAttribute('aria-pressed', 'true');
+        document.getElementById('mapModeBtn').setAttribute('aria-pressed', 'false');
         // optional: resize map if needed later, but not needed
     }
 
@@ -208,50 +212,53 @@
         document.getElementById('mapContainer').classList.remove('hidden');
         document.getElementById('listModeBtn').classList.remove('active');
         document.getElementById('mapModeBtn').classList.add('active');
+        document.getElementById('listModeBtn').setAttribute('aria-pressed', 'false');
+        document.getElementById('mapModeBtn').setAttribute('aria-pressed', 'true');
         // initialize map if not yet
         if (!mapInitialized) {
             initMap();
-        } else {
-            // refresh map size after container becomes visible
-            setTimeout(() => {
-                if (map) map.invalidateSize();
-            }, 150);
+        } else if (map) {
+            requestAnimationFrame(() => map.invalidateSize());
         }
     }
 
-    // ========== BURGER MENU TOGGLE ==========
+    // ========== RESPONSIVE NAVIGATION ==========
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    function toggleMenu() {
-        mobileMenu.classList.toggle('open');
+
+    function setMenuOpen(open) {
+        mobileMenu.classList.toggle('open', open);
+        mobileMenu.inert = !open;
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     }
-    if(burger) burger.addEventListener('click', toggleMenu);
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
+
+    if (burger && mobileMenu) {
+        burger.addEventListener('click', () => {
+            setMenuOpen(!mobileMenu.classList.contains('open'));
         });
-    });
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
-            mobileMenu.classList.remove('open');
-        }
-    });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setMenuOpen(false));
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1050) setMenuOpen(false);
+        });
+    }
 
     // ========== SCROLL TO TOP BUTTON ==========
-    let scrollBtn = document.getElementById("scrollToTopButton");
-    window.onscroll = function() { scrollFunction(); };
+    const scrollBtn = document.getElementById('scrollToTopButton');
+
     function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollBtn.style.display = "block";
-        } else {
-            scrollBtn.style.display = "none";
-        }
+        const shouldShow = window.scrollY > 200;
+        scrollBtn.style.display = shouldShow ? 'block' : 'none';
     }
-    function topFunction() {
+
+    window.addEventListener('scroll', scrollFunction, { passive: true });
+    scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    scrollBtn.addEventListener('click', topFunction);
+    });
 
     // Initialize page
     renderListView();

@@ -2,100 +2,97 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Our Services | Luo Dental Clinic</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="Services.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the preventive, restorative, orthodontic, cosmetic, and implant dentistry services offered by Luo Dental Clinic.">
+    <title>Dental Services | Luo Dental Clinic</title>
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-
-<header>
+<header class="site-header">
     <div class="header-container">
-        <div class="logo-area">
-            <img src="picture/1.png" alt="DentaCare Logo">
-            <h3><a href="index.html">Luo Dental Clinic</a></h3>
-        </div>
-        <nav>
+        <a class="logo-area" href="index.html" aria-label="Luo Dental Clinic home">
+            <img src="picture\1.png" alt="Luo Dental Clinic logo">
+            <span class="brand-name">Luo Dental Clinic</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#about">About Us</a></li>
                 <li><a href="index.html#photogallery">Gallery</a></li>
-                <li><a href="services.html">Services</a></li>
+                <li><a class="active" href="services.html" aria-current="page">Services</a></li>
                 <li><a href="doctors.html">Doctors</a></li>
                 <li><a href="locations.html">Locations</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
-                <li><a href="appointment.html">Appointment</a></li>
+                <li><a class="nav-appointment" href="appointment.html">Appointment</a></li>
             </ul>
         </nav>
-        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+        <button class="burger-btn" id="burgerBtn" type="button" aria-label="Open navigation menu" aria-controls="mobileMenu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation" inert>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#photogallery">Photo Gallery</a></li>
-            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#photogallery">Gallery</a></li>
+            <li><a href="services.html" aria-current="page">Services</a></li>
             <li><a href="doctors.html">Doctors</a></li>
             <li><a href="locations.html">Locations</a></li>
             <li><a href="contacts.html">Contacts</a></li>
             <li><a href="appointment.html">Appointment</a></li>
         </ul>
-    </div>
+    </nav>
 </header>
 
-<main>
-    <section>
-        <h2 class="section-title">Comprehensive Dental Services</h2>
-        <div class="subhead">
-            We offer a full range of modern dental treatments using state-of-the-art technology and gentle care.
+<main class="page-main">
+    <section class="services-section" aria-labelledby="services-title">
+        <div class="section-heading">
+            <p class="eyebrow">Care for every smile</p>
+            <h1 class="section-title" id="services-title">Our Dental Services</h1>
+            <p class="section-intro">Explore our preventive, restorative, orthodontic, cosmetic, and implant dentistry services. Contact the clinic to discuss which treatment may suit your needs.</p>
         </div>
-
-        <div class="filter-bar">
-            <button class="filter-btn active" data-filter="all">All Services</button>
-            <button class="filter-btn" data-filter="preventive">Preventive Dentistry</button>
-            <button class="filter-btn" data-filter="restorative">Restorative Dentistry</button>
-            <button class="filter-btn" data-filter="ortho">Orthodontics</button>
-            <button class="filter-btn" data-filter="cosmetic">Cosmetic Dentistry</button>
-            <button class="filter-btn" data-filter="implant">Implantology</button>
+        <div class="filter-bar" role="group" aria-label="Filter services by category">
+            <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All Services</button>
+            <button class="filter-btn" type="button" data-filter="preventive" aria-pressed="false">Preventive Dentistry</button>
+            <button class="filter-btn" type="button" data-filter="restorative" aria-pressed="false">Restorative Dentistry</button>
+            <button class="filter-btn" type="button" data-filter="ortho" aria-pressed="false">Orthodontics</button>
+            <button class="filter-btn" type="button" data-filter="cosmetic" aria-pressed="false">Cosmetic Dentistry</button>
+            <button class="filter-btn" type="button" data-filter="implant" aria-pressed="false">Implantology</button>
         </div>
-
+        <p class="results-count" id="resultsCount" aria-live="polite"></p>
         <div class="services-grid" id="servicesGrid"></div>
+        <p class="price-note">Prices shown are indicative starting prices and may vary depending on examination findings and the treatment plan. Confirm the final cost with the clinic before treatment.</p>
     </section>
 </main>
 
-<footer>
+<footer class="site-footer">
     <div class="footer-content">
         <div class="footer-col">
-            <h4>DentaCare Clinic</h4>
-            <p>123 Health Street, Minsk<br>+375 (29) 123-45-67<br>info@dentacare.by</p>
+            <h2>Luo Dental Clinic</h2>
+            <p>Dental care focused on comfort, clear communication, and individual treatment planning.</p>
         </div>
         <div class="footer-col">
-            <h4>Working Hours</h4>
-            <p>Mon-Fri: 9:00 – 20:00<br>Sat: 10:00 – 16:00<br>Sun: closed</p>
+            <h3>Quick Links</h3>
+            <a href="services.html">Our Services</a>
+            <a href="doctors.html">Our Doctors</a>
+            <a href="locations.html">Locations</a>
+            <a href="appointment.html">Book an Appointment</a>
         </div>
         <div class="footer-col">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-weixin"></i></a>
-            </div>
+            <h3>Contact</h3>
+            <p>Please visit the Contacts page for the clinic's current contact details and opening hours.</p>
+            <a href="contacts.html">Contact the clinic <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
         </div>
     </div>
-    <div class="copyright">
-        <p>© 2026 Luo Dental Clinic | Professional care for healthy smiles</p>
-    </div>
+    <div class="copyright">© 2026 Luo Dental Clinic. All rights reserved.</div>
 </footer>
 
-<button id="scrollToTopButton" title="Go to top">
-    <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
-        <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
-    </svg>
+<button class="back-to-top" id="scrollToTopButton" type="button" aria-label="Scroll to top" title="Scroll to top">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
 </button>
 
 <script>
-    // ---------- SERVICES DATA ----------
     const servicesData = [
         // Preventive
         { id: 1, name: "Oral Exam & Consultation", category: "preventive", icon: "fas fa-stethoscope", desc: "Comprehensive oral examination, digital X-rays, and personalized treatment plan.", price: "from $45", link: "appointment.html" },
@@ -123,86 +120,112 @@
         { id: 19, name: "Bone Grafting", category: "implant", icon: "fas fa-bone", desc: "Preparation for implant placement when bone volume is insufficient.", price: "from $500", link: "appointment.html" }
     ];
 
-    // render services based on filter
+    const categoryLabels = {
+        preventive: "Preventive Dentistry",
+        restorative: "Restorative Dentistry",
+        ortho: "Orthodontics",
+        cosmetic: "Cosmetic Dentistry",
+        implant: "Implantology"
+    };
+
+    const servicesGrid = document.getElementById("servicesGrid");
+    const resultsCount = document.getElementById("resultsCount");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+
     function renderServices(filter = "all") {
-        const container = document.getElementById("servicesGrid");
-        if (!container) return;
-        
-        let filtered = servicesData;
-        if (filter !== "all") {
-            filtered = servicesData.filter(service => service.category === filter);
-        }
-        
-        if (filtered.length === 0) {
-            container.innerHTML = `<div style="text-align:center; grid-column:1/-1; padding:40px;">No services found in this category. Please try another filter.</div>`;
-            return;
-        }
-        
-        const cardsHTML = filtered.map(service => `
-            <div class="service-card">
-                <div class="service-icon"><i class="${service.icon}"></i></div>
-                <div class="service-content">
-                    <h3>${service.name}</h3>
-                    <div class="service-desc">${service.desc}</div>
-                    <div class="service-price"><i class="fas fa-tag"></i> ${service.price}</div>
-                    <a href="${service.link}" class="book-link">Book now →</a>
-                </div>
-            </div>
-        `).join('');
-        
-        container.innerHTML = cardsHTML;
+        const filteredServices = filter === "all"
+            ? servicesData
+            : servicesData.filter(service => service.category === filter);
+
+        servicesGrid.replaceChildren();
+
+        filteredServices.forEach(service => {
+            const card = document.createElement("article");
+            card.className = "service-card";
+
+            const iconWrap = document.createElement("div");
+            iconWrap.className = "service-icon";
+            iconWrap.setAttribute("aria-hidden", "true");
+            const icon = document.createElement("i");
+            icon.className = service.icon;
+            iconWrap.appendChild(icon);
+
+            const content = document.createElement("div");
+            content.className = "service-content";
+
+            const category = document.createElement("p");
+            category.className = "service-category";
+            category.textContent = categoryLabels[service.category];
+
+            const title = document.createElement("h2");
+            title.textContent = service.name;
+
+            const description = document.createElement("p");
+            description.className = "service-desc";
+            description.textContent = service.desc;
+
+            const price = document.createElement("p");
+            price.className = "service-price";
+            const priceIcon = document.createElement("i");
+            priceIcon.className = "fa-solid fa-tag";
+            priceIcon.setAttribute("aria-hidden", "true");
+            price.append(priceIcon, document.createTextNode(" " + service.price));
+
+            const link = document.createElement("a");
+            link.href = service.link;
+            link.className = "book-link";
+            link.innerHTML = 'Book an appointment <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>';
+
+            content.append(category, title, description, price, link);
+            card.append(iconWrap, content);
+            servicesGrid.appendChild(card);
+        });
+
+        resultsCount.textContent = `Showing ${filteredServices.length} service${filteredServices.length === 1 ? "" : "s"}`;
     }
 
-    // setup filter buttons
-    function initFilters() {
-        const btns = document.querySelectorAll('.filter-btn');
-        btns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                btns.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
-                const filterVal = this.getAttribute('data-filter');
-                renderServices(filterVal);
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            filterButtons.forEach(item => {
+                const selected = item === button;
+                item.classList.toggle("active", selected);
+                item.setAttribute("aria-pressed", String(selected));
             });
-        });
-    }
-
-    // ========== BURGER MENU TOGGLE ==========
-    const burger = document.getElementById('burgerBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    function toggleMenu() {
-        mobileMenu.classList.toggle('open');
-    }
-    if(burger) burger.addEventListener('click', toggleMenu);
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
+            renderServices(button.dataset.filter);
         });
     });
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
-            mobileMenu.classList.remove('open');
-        }
+
+    const burger = document.getElementById("burgerBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+
+    function setMenuOpen(open) {
+        mobileMenu.classList.toggle("open", open);
+        mobileMenu.inert = !open;
+        burger.setAttribute("aria-expanded", String(open));
+        burger.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+    }
+
+    burger.addEventListener("click", () => {
+        setMenuOpen(burger.getAttribute("aria-expanded") !== "true");
     });
 
-    // ========== SCROLL TO TOP BUTTON ==========
-    let scrollBtn = document.getElementById("scrollToTopButton");
-    window.onscroll = function() { scrollFunction(); };
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollBtn.style.display = "block";
-        } else {
-            scrollBtn.style.display = "none";
-        }
-    }
-    function topFunction() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    scrollBtn.addEventListener('click', topFunction);
+    mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => setMenuOpen(false));
+    });
 
-    // initial render
-    renderServices("all");
-    initFilters();
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 1050) setMenuOpen(false);
+    });
+
+    const scrollButton = document.getElementById("scrollToTopButton");
+    window.addEventListener("scroll", () => {
+        scrollButton.classList.toggle("visible", window.scrollY > 300);
+    });
+    scrollButton.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    renderServices();
 </script>
 </body>
 </html>

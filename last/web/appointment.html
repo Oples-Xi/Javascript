@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Book Appointment | Luo Dental Clinic</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment | Luo Dental Clinic</title>
+    <meta name="description" content="Request a dental appointment with Luo Dental Clinic. Choose a service, preferred date, and time.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="appointment.css" />
 </head>
 <body>
 <header>
     <div class="header-container">
         <div class="logo-area">
-            <img src="1.png" alt="DentaCare Logo" ">
+            <img src="picture\1.png" alt="Luo Dental Clinic logo">
             <h3><a href="index.html">Luo Dental Clinic</a></h3>
         </div>
         <nav>
@@ -26,9 +27,9 @@
                 <li><a href="appointment.html">Appointment</a></li>
             </ul>
         </nav>
-        <button class="burger-btn" id="burgerBtn" aria-label="Menu">☰</button>
+        <button class="burger-btn" id="burgerBtn" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open navigation menu">☰</button>
     </div>
-    <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu" id="mobileMenu" inert>
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="index.html#about">About Us</a></li>
@@ -55,31 +56,31 @@
                 <p>Convenient, fast, and professional dental care — book online now.</p>
             </div>
             <div class="form-body">
-                <form id="appointmentForm">
+                <form id="appointmentForm" novalidate>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Full name *</label>
-                            <input type="text" id="fullName" placeholder="e.g. Ivan Ivanov" required>
+                            <label for="fullName">Full name *</label>
+                            <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="e.g. Ivan Ivanov" required>
                         </div>
                         <div class="form-group">
-                            <label>Email address *</label>
-                            <input type="email" id="email" placeholder="your@email.com" required>
+                            <label for="email">Email address *</label>
+                            <input type="email" id="email" name="email" autocomplete="email" placeholder="your@email.com" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Phone number *</label>
-                            <input type="tel" id="phone" placeholder="+375 XX XXX XX XX" required>
+                            <label for="phone">Phone number *</label>
+                            <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Your phone number" required>
                         </div>
                         <div class="form-group">
-                            <label>Preferred date *</label>
-                            <input type="date" id="preferredDate" required>
+                            <label for="preferredDate">Preferred date *</label>
+                            <input type="date" id="preferredDate" name="preferredDate" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Service type *</label>
-                            <select id="serviceType" required>
+                            <label for="serviceType">Service type *</label>
+                            <select id="serviceType" name="serviceType" required>
                                 <option value="">-- Select a service --</option>
                                 <option value="Consultation">Initial consultation</option>
                                 <option value="Cleaning">Professional cleaning</option>
@@ -100,13 +101,12 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Additional comments (optional)</label>
-                        <textarea rows="3" id="comments" placeholder="Tell us about your symptoms or any special requests..."></textarea>
+                        <label for="comments">Additional comments (optional)</label>
+                        <textarea rows="3" id="comments" name="comments" placeholder="Share any relevant details or special requests..."></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Submit request <i class="fas fa-arrow-right"></i></button>
-                    <div class="info-note">
-                        <i class="fas fa-shield-alt"></i> Your data is secure. We will contact you within 24h to confirm the appointment.
-                    </div>
+                    <p class="info-note"><i class="fas fa-info-circle" aria-hidden="true"></i> Demo form only: this page does not send or store appointment requests. Connect a server-side form handler before using it for real bookings.</p>
+                    <p id="formStatus" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
                 </form>
             </div>
         </div>
@@ -116,8 +116,8 @@
 <footer>
     <div class="footer-content">
         <div class="footer-col">
-            <h4>DentaCare Clinic</h4>
-            <p>123 Health Street, Minsk<br>+375 (29) 123-45-67<br>info@dentacare.by</p>
+            <h4>Luo Dental Clinic</h4>
+            <p>Contact details will be published here once confirmed.</p>
         </div>
         <div class="footer-col">
             <h4>Working Hours</h4>
@@ -125,12 +125,7 @@
         </div>
         <div class="footer-col">
             <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="#"><i class="fab fa-weixin"></i></a>
-            </div>
+<p>Official social media links will be added when available.</p>
         </div>
     </div>
     <div class="copyright">
@@ -138,93 +133,81 @@
     </div>
 </footer>
 
-<button id="scrollToTopButton" title="Go to top">
+<button id="scrollToTopButton" type="button" title="Go to top" aria-label="Scroll to top">
     <svg fill="#ffffff" width="24px" height="24px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" style="margin: 12px auto; display: block;">
         <path d="M0.256 23.481c0 0.269 0.106 0.544 0.313 0.75 0.412 0.413 1.087 0.413 1.5 0l14.119-14.119 13.913 13.912c0.413 0.413 1.087 0.413 1.5 0s0.413-1.087 0-1.5l-14.663-14.669c-0.413-0.412-1.088-0.412-1.5 0l-14.869 14.869c-0.213 0.212-0.313 0.481-0.313 0.756z"></path>
     </svg>
 </button>
 
 <script>
-    // ========== BURGER MENU TOGGLE ==========
     const burger = document.getElementById('burgerBtn');
     const mobileMenu = document.getElementById('mobileMenu');
-    function toggleMenu() {
-        mobileMenu.classList.toggle('open');
+
+    function setMenuOpen(open) {
+        mobileMenu.classList.toggle('open', open);
+        mobileMenu.inert = !open;
+        burger.setAttribute('aria-expanded', String(open));
+        burger.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
     }
-    if(burger) burger.addEventListener('click', toggleMenu);
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-        });
-    });
-    window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && mobileMenu.classList.contains('open')) {
-            mobileMenu.classList.remove('open');
-        }
+
+    burger.addEventListener('click', () => {
+        setMenuOpen(burger.getAttribute('aria-expanded') !== 'true');
     });
 
-    // ========== SCROLL TO TOP BUTTON ==========
-    let scrollBtn = document.getElementById("scrollToTopButton");
-    window.onscroll = function() { scrollFunction(); };
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            scrollBtn.style.display = "block";
-        } else {
-            scrollBtn.style.display = "none";
-        }
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setMenuOpen(false));
+    });
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 1050) setMenuOpen(false);
+    });
+
+    const scrollBtn = document.getElementById('scrollToTopButton');
+    function updateScrollButton() {
+        scrollBtn.classList.toggle('visible', window.scrollY > 200);
     }
-    function topFunction() {
+    window.addEventListener('scroll', updateScrollButton, { passive: true });
+    updateScrollButton();
+
+    scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    scrollBtn.addEventListener('click', topFunction);
+    });
 
-    // ========== APPOINTMENT FORM HANDLER ==========
     const appForm = document.getElementById('appointmentForm');
-    appForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Validate required fields
+    const formStatus = document.getElementById('formStatus');
+    const dateInput = document.getElementById('preferredDate');
+
+    // Use the local calendar date rather than UTC to avoid timezone date shifts.
+    const now = new Date();
+    const localToday = new Date(now.getTime() - now.getTimezoneOffset() * 60000)
+        .toISOString().slice(0, 10);
+    dateInput.min = localToday;
+
+    appForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        formStatus.textContent = '';
+
+        if (!appForm.checkValidity()) {
+            appForm.reportValidity();
+            return;
+        }
+
         const fullName = document.getElementById('fullName').value.trim();
         const email = document.getElementById('email').value.trim();
         const phone = document.getElementById('phone').value.trim();
-        const preferredDate = document.getElementById('preferredDate').value;
+        const preferredDate = dateInput.value;
         const service = document.getElementById('serviceType').value;
-        
+
         if (!fullName || !email || !phone || !preferredDate || !service) {
-            alert('Please fill in all required fields.');
+            formStatus.textContent = 'Please complete all required fields.';
+            formStatus.focus();
             return;
         }
-        
-        // Simple email validation
-        const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
-        if (!emailPattern.test(email)) {
-            alert('Please enter a valid email address.');
-            return;
-        }
-        
-        // Get selected time slot
-        let timeSlot = '';
-        const timeRadios = document.querySelectorAll('input[name="timeSlot"]');
-        for (let radio of timeRadios) {
-            if (radio.checked) {
-                timeSlot = radio.value;
-                break;
-            }
-        }
-        const timeText = timeSlot ? ` at ${timeSlot}` : '';
-        
-        // Show confirmation
-        alert(`Thank you ${fullName}! Your appointment request for ${service} on ${preferredDate}${timeText} has been received. We will contact you within 24 hours to confirm.`);
-        
-        // Reset form
-        appForm.reset();
+
+        formStatus.textContent =
+            'The form passed basic validation, but this demo page does not send or save requests. A server-side form handler is required to book an appointment.';
+        formStatus.focus();
     });
-    
-    // Set min date to today (optional, prevents past dates)
-    const dateInput = document.getElementById('preferredDate');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
 </script>
 </body>
 </html>

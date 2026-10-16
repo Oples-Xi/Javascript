@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>l6t2</title>
+</head>
+<body>
+<script>
+    let groupA = ["Oliver", "James", "Amelia"];
+    let groupB = ["William", "Emma"];
+
+    // 1. 合并两个数组
+    let allStudents = groupA.concat(groupB);
+    console.log("Merged array:", allStudents);
+
+    // 2. 按字母顺序排序
+    allStudents.sort();
+    console.log("Sorted array:", allStudents);
+
+    // 3. 删除最后一个元素并输出
+    let removedStudent = allStudents.pop();
+    console.log("Removed student:", removedStudent);
+
+    // 4. 在数组开头添加 Henry
+    allStudents.unshift("Henry");
+
+    // 5. 输出最终数组
+    console.log("Final array:", allStudents);
+</script>
+</body>
+</html>
