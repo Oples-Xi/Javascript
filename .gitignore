@@ -1,0 +1,9 @@
+**/*.pdf
+**/.idea
+**/.vscode
+**/*.pptx
+**/*.txt
+**/*.png
+**/*.jpg
+**/*.zip
+**/work/
