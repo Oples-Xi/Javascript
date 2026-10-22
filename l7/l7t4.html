@@ -15,19 +15,39 @@
     <li>Orange</li>
 </ul>
 
+<button id="addMilk">Add Milk</button>
+<button id="addBread">Add Bread</button>
+<button id="removeLast">Remove Last</button>
+<button id="countItems">Count Items</button>
+
 <script>
     let shoppingList = document.getElementById("shoppingList");
 
-    let milk = document.createElement("li");
-    milk.innerText = "Milk";
-    shoppingList.appendChild(milk);
+    // 1. Add Milk to the end
+    document.getElementById("addMilk").onclick = function () {
+        let milk = document.createElement("li");
+        milk.innerText = "Milk";
+        shoppingList.appendChild(milk);
+    };
 
-    let bread = document.createElement("li");
-    bread.innerText = "Bread";
-    shoppingList.prepend(bread);
+    // 2. Add Bread to the beginning
+    document.getElementById("addBread").onclick = function () {
+        let bread = document.createElement("li");
+        bread.innerText = "Bread";
+        shoppingList.prepend(bread);
+    };
 
-    shoppingList.lastElementChild.remove();
-    console.log("Number of items:", shoppingList.children.length);
+    // 3. Remove the last element
+    document.getElementById("removeLast").onclick = function () {
+        if (shoppingList.lastElementChild !== null) {
+            shoppingList.lastElementChild.remove();
+        }
+    };
+
+    // 4. Print the number of elements
+    document.getElementById("countItems").onclick = function () {
+        console.log("Number of items:", shoppingList.children.length);
+    };
 </script>
 
 </body>
