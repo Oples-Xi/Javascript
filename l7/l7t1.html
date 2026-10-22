@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>l7t1</title>
+</head>
+<body>
+
+<h1 id="title">Hello, World!</h1>
+<button id="changeButton">Change Title</button>
+
+<script>
+    let title = document.getElementById("title");
+    let button = document.getElementById("changeButton");
+
+    button.onclick = function () {
+        console.log("Original text:", title.innerText);
+
+        title.innerText = "Welcome to the DOM!";
+    };
+</script>
+
+</body>
+</html>

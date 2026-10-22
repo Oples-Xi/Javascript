@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 3 - Change Theme</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        button {
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+<body>
+<h1>Theme Switcher</h1>
+<p>Click the button to change the page theme.</p>
+<button id="themeButton">Dark theme</button>
+
+<script>
+    let themeButton = document.getElementById("themeButton");
+    let isDark = false;
+
+    themeButton.onclick = function () {
+        if (isDark === false) {
+            document.body.style.backgroundColor = "#333";
+            document.body.style.color = "white";
+            themeButton.innerText = "Light theme";
+            isDark = true;
+        } else {
+            document.body.style.backgroundColor = "white";
+            document.body.style.color = "black";
+            themeButton.innerText = "Dark theme";
+            isDark = false;
+        }
+    };
+</script>
+
+</body>
+</html>

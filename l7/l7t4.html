@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Task 4 - Shopping List</title>
+</head>
+<body>
+
+<h1>Shopping List</h1>
+
+<ul id="shoppingList">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+</ul>
+
+<script>
+    let shoppingList = document.getElementById("shoppingList");
+
+    let milk = document.createElement("li");
+    milk.innerText = "Milk";
+    shoppingList.appendChild(milk);
+
+    let bread = document.createElement("li");
+    bread.innerText = "Bread";
+    shoppingList.prepend(bread);
+
+    shoppingList.lastElementChild.remove();
+    console.log("Number of items:", shoppingList.children.length);
+</script>
+
+</body>
+</html>
