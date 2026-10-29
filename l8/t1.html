@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Survey</title>
+</head>
+<body>
+<h1>User Survey</h1>
+<button id="start-survey" type="button">Start Survey</button>
+
+<script>
+    document.getElementById("start-survey").addEventListener("click", () => {
+        alert("Welcome!");
+
+        const name = prompt("Please enter your name:");
+        const isAdult = confirm("Are you over 18 years old?");
+
+        if (isAdult) {
+            alert(`${name ?? ""}, welcome to the site`);
+        } else {
+            alert(`${name ?? ""}, access denied`);
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Parser</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        input {
+            flex: 1;
+            min-width: 180px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        .examples {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 16px 0;
+        }
+
+        .examples a,
+        dd {
+            overflow-wrap: anywhere;
+        }
+
+        dl {
+            display: grid;
+            grid-template-columns: 100px minmax(0, 1fr);
+            gap: 12px;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin: 0;
+        }
+
+        #error {
+            color: #b00020;
+        }
+    </style>
+</head>
+<body>
+<h1>URL Parser</h1>
+
+<form id="url-form" novalidate>
+    <input
+            id="url-input"
+            type="text"
+            aria-label="URL"
+            placeholder="https://example.com/page?q=test#section"
+    >
+    <button type="submit">Parse</button>
+    <button id="clear" type="button">Clear</button>
+</form>
+
+<div class="examples">
+    <span>Try:</span>
+    <a href="https://example.com/page?q=test#section">
+        Example 1
+    </a>
+    <a href="http://example.com:8080/docs/start">
+        Example 2
+    </a>
+    <a href="https://example.com/">
+        Example 3
+    </a>
+</div>
+
+<p id="error" role="alert"></p>
+
+<dl aria-live="polite">
+    <dt>Full URL:</dt>
+    <dd id="href">Waiting for input...</dd>
+
+    <dt>Protocol:</dt>
+    <dd id="protocol">Waiting for input...</dd>
+
+    <dt>Host:</dt>
+    <dd id="host">Waiting for input...</dd>
+
+    <dt>Pathname:</dt>
+    <dd id="pathname">Waiting for input...</dd>
+</dl>
+
+<script>
+    const input = document.getElementById("url-input");
+    const error = document.getElementById("error");
+
+    const output = {
+        href: document.getElementById("href"),
+        protocol: document.getElementById("protocol"),
+        host: document.getElementById("host"),
+        pathname: document.getElementById("pathname")
+    };
+
+    function resetOutput() {
+        for (const element of Object.values(output)) {
+            element.textContent = "Waiting for input...";
+        }
+    }
+
+    function parseURL() {
+        error.textContent = "";
+        resetOutput();
+
+        const value = input.value.trim();
+
+        if (value === "") {
+            error.textContent = "Please enter a URL.";
+            return;
+        }
+
+        try {
+            const url = new URL(value);
+
+            output.href.textContent = url.href;
+            output.protocol.textContent = url.protocol;
+            output.host.textContent = url.host;
+            output.pathname.textContent = url.pathname;
+        } catch {
+            error.textContent =
+                "Invalid URL. Enter a complete URL, such as https://example.com/";
+        }
+    }
+
+    document.getElementById("url-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        parseURL();
+    });
+
+    document.getElementById("clear").addEventListener("click", () => {
+        input.value = "";
+        error.textContent = "";
+        resetOutput();
+        input.focus();
+    });
+
+    document.querySelectorAll(".examples a").forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            input.value = link.getAttribute("href");
+            parseURL();
+        });
+    });
+</script>
+</body>
+</html>

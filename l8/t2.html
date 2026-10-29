@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser and Screen Information</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f3f3f3;
+            overflow-wrap: anywhere;
+        }
+    </style>
+</head>
+<body>
+<h1>Browser and Screen Information</h1>
+<div id="info"></div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const information = [
+            ["Browser Name", navigator.appName],
+            ["Browser Version", navigator.appVersion],
+            ["Operating System", navigator.platform],
+            ["User Agent", navigator.userAgent],
+            ["Screen Size", `${screen.width} x ${screen.height} pixels`],
+            [
+                "Available Screen Size",
+                `${screen.availWidth} x ${screen.availHeight} pixels`
+            ],
+            ["Color Depth", `${screen.colorDepth} bits`]
+        ];
+
+        const list = document.createElement("ul");
+
+        for (const [label, value] of information) {
+            const item = document.createElement("li");
+            const title = document.createElement("strong");
+
+            title.textContent = `${label}: `;
+            item.append(title, document.createTextNode(String(value)));
+            list.appendChild(item);
+        }
+
+        document.getElementById("info").appendChild(list);
+    });
+</script>
+</body>
+</html>
