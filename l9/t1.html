@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form name="registration">
+    <p>
+        <label>Full Name:</label>
+        <input type="text" name="fullName">
+    </p>
+
+    <p>
+        <label>Email:</label>
+        <input type="email" name="email">
+    </p>
+
+    <p>
+        <label>Password:</label>
+        <input type="password" name="password">
+    </p>
+
+    <button type="submit">Submit</button>
+    <button type="button" onclick="showData()">Show Data</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    function showData() {
+        let form = document.forms.registration;
+
+        let name = form.elements.fullName.value;
+        let email = form.elements.email.value;
+        let password = form.elements.password.value;
+
+        console.log("Form elements:", form.elements.length);
+
+        let result = document.getElementById("result");
+
+        if (name === "" || email === "" || password === "") {
+            result.innerText = "Please fill in all fields";
+        } else {
+            result.innerHTML =
+                "Full Name: " + name + "<br>" +
+                "Email: " + email + "<br>" +
+                "Password: " + password;
+        }
+    }
+</script>
+
+</body>
+</html>

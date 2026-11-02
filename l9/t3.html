@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Checkboxes and Dropdown</title>
+</head>
+<body>
+
+<h2>City Selection</h2>
+
+<form name="choiceForm">
+
+    <p>
+        <label>Select City:</label>
+        <select name="city">
+            <option value="New York">New York</option>
+            <option value="London">London</option>
+            <option value="Tokyo">Tokyo</option>
+        </select>
+    </p>
+
+    <p>
+        <input type="text" id="newCity" placeholder="Enter a city">
+        <button type="button" onclick="addCity()">Add City</button>
+    </p>
+
+    <h3>Select Your Hobbies</h3>
+
+    <p>
+        <label>
+            <input type="checkbox" name="hobby" value="Reading">
+            Reading
+        </label>
+    </p>
+
+    <p>
+        <label>
+            <input type="checkbox" name="hobby" value="Sports">
+            Sports
+        </label>
+    </p>
+
+    <p>
+        <label>
+            <input type="checkbox" name="hobby" value="Music">
+            Music
+        </label>
+    </p>
+
+    <button type="button" onclick="submitChoices()">
+        Submit Choices
+    </button>
+
+</form>
+
+<p id="result"></p>
+
+<script>
+    function addCity() {
+        let input = document.getElementById("newCity");
+        let cityName = input.value.trim();
+
+        if (cityName !== "") {
+            let option = new Option(cityName, cityName);
+
+            document.forms.choiceForm.elements.city.add(option);
+
+            input.value = "";
+        }
+    }
+
+    function submitChoices() {
+        let form = document.forms.choiceForm;
+
+        let city = form.elements.city.value;
+
+        let hobbies = form.querySelectorAll(
+            'input[name="hobby"]'
+        );
+
+        let selectedHobbies = [];
+
+        for (let i = 0; i < hobbies.length; i++) {
+            if (hobbies[i].checked === true) {
+                selectedHobbies.push(hobbies[i].value);
+            }
+        }
+
+        let result = document.getElementById("result");
+
+        if (selectedHobbies.length > 0) {
+            result.innerText =
+                "You live in: " + city +
+                ". Your hobbies: " +
+                selectedHobbies.join(", ");
+        } else {
+            result.innerText =
+                "You live in: " + city +
+                ". No hobbies selected";
+        }
+    }
+</script>
+
+</body>
+</html>

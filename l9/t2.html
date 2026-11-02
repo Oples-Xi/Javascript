@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Radio Buttons</title>
+</head>
+<body>
+
+<h2>What is your preferred programming language?</h2>
+
+<form name="languageForm">
+    <p>
+        <label>
+            <input type="radio" name="language" value="JavaScript">
+            JavaScript
+        </label>
+    </p>
+
+    <p>
+        <label>
+            <input type="radio" name="language" value="Python">
+            Python
+        </label>
+    </p>
+
+    <p>
+        <label>
+            <input type="radio" name="language" value="Java">
+            Java
+        </label>
+    </p>
+
+    <button type="button" onclick="showSelection()">
+        Show Selection
+    </button>
+</form>
+
+<p id="result"></p>
+
+<script>
+    function showSelection() {
+        let selected = document.querySelector(
+            'input[name="language"]:checked'
+        );
+
+        let result = document.getElementById("result");
+
+        if (selected) {
+            result.innerText = selected.value;
+        } else {
+            result.innerText = "No option selected";
+        }
+    }
+</script>
+
+</body>
+</html>
