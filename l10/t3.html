@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 3</title>
+</head>
+<body>
+
+<h2>Keyboard Input</h2>
+
+<input type="text" id="textInput">
+
+<div id="result"></div>
+
+<button id="clearButton">Clear</button>
+
+<script>
+    const textInput = document.getElementById("textInput");
+    const result = document.getElementById("result");
+
+    textInput.addEventListener("keyup", function(event) {
+        const value = textInput.value;
+
+        if (value.length > 0) {
+            const lastCharacter = value[value.length - 1];
+
+            result.innerText =
+                "Last pressed key: " + lastCharacter;
+        } else {
+            result.innerText = "";
+        }
+
+        console.log("event.code:", event.code);
+    });
+
+    document.getElementById("clearButton")
+        .addEventListener("click", function() {
+            textInput.value = "";
+            result.innerText = "";
+        });
+</script>
+
+</body>
+</html>

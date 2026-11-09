@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 2</title>
+</head>
+<body>
+
+<h2>Mouse Coordinates</h2>
+
+<p>Client Coordinates: <span id="client"></span></p>
+<p>Page Coordinates: <span id="page"></span></p>
+
+<div id="mouseArea" style="
+    width: 100%;
+    height: 500px;
+    border: 1px solid black;
+    position: relative;
+">
+    <div id="marker" style="
+        width: 10px;
+        height: 10px;
+        background-color: red;
+        border-radius: 50%;
+        position: absolute;
+        display: none;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+    "></div>
+</div>
+
+<script>
+    const mouseArea = document.getElementById("mouseArea");
+    const marker = document.getElementById("marker");
+
+    mouseArea.addEventListener("mousemove", function(event) {
+        document.getElementById("client").innerText =
+            event.clientX + ", " + event.clientY;
+
+        document.getElementById("page").innerText =
+            event.pageX + ", " + event.pageY;
+
+        const rect = mouseArea.getBoundingClientRect();
+
+        marker.style.left = (event.clientX - rect.left) + "px";
+        marker.style.top = (event.clientY - rect.top) + "px";
+        marker.style.display = "block";
+    });
+
+    mouseArea.addEventListener("mouseleave", function() {
+        marker.style.display = "none";
+    });
+</script>
+
+</body>
+</html>

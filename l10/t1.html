@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1</title>
+</head>
+<body>
+
+<h2>Mouse Hover</h2>
+
+<div id="square" style="
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: lightgray;
+"></div>
+
+<script>
+    const square = document.getElementById("square");
+
+    square.addEventListener("mouseover", function() {
+        square.style.backgroundColor = "blue";
+    });
+
+    square.addEventListener("mouseout", function() {
+        square.style.backgroundColor = "lightgray";
+    });
+
+    square.addEventListener("click", function() {
+        alert("You clicked the square!");
+    });
+</script>
+
+</body>
+</html>
